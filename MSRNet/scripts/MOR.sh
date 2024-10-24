@@ -6,7 +6,7 @@ if [ ! -d "./logs/MOR" ]; then
     mkdir ./logs/MOR
 fi
 
-export CUDA_VISIBLE_DEVICES=2
+export CUDA_VISIBLE_DEVICES=0
 
 seq_len=96
 label_len=48
