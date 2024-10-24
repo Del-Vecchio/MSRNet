@@ -5,7 +5,7 @@ fi
 if [ ! -d "./logs/AUS" ]; then
     mkdir ./logs/AUS
 fi
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0
 
 seq_len=96
 label_len=48
