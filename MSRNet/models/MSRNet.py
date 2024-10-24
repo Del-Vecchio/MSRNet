@@ -11,7 +11,7 @@ from layers.Multi_Scale_Module import Multi_Scale_Module
 from torch import Tensor
 import copy
 
-# 并行实现的版本 （误差基本不变）
+
 
 def FFT_for_Period(x, k=3):
     # x: [B, T] or [B, T, C]
