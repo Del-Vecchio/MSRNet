@@ -12,7 +12,6 @@ from torch import Tensor
 import copy
 
 
-
 def FFT_for_Period(x, k=3):
     # x: [B, T] or [B, T, C]
     xf = torch.fft.rfft(x, dim=1)
