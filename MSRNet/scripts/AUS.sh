@@ -18,7 +18,7 @@ python -u run_longExp.py \
     --data_path AUS.csv \
     --model_id AUS'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data AUS \
+    --data custom \
     --features MS \
     --freq h \
     --target 'OT' \
@@ -48,7 +48,7 @@ python -u run_longExp.py \
     --data_path AUS.csv \
     --model_id AUS'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data AUS \
+    --data custom \
     --features M \
     --freq h \
     --target 'OT' \
@@ -78,7 +78,7 @@ python -u run_longExp.py \
     --data_path AUS.csv \
     --model_id AUS'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data AUS \
+    --data custom \
     --features M \
     --freq h \
     --target 'OT' \
@@ -108,7 +108,7 @@ python -u run_longExp.py \
     --data_path AUS.csv \
     --model_id AUS'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data AUS \
+    --data custom \
     --features M \
     --freq h \
     --target 'OT' \
