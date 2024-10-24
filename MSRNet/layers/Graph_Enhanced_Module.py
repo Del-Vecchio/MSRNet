@@ -187,11 +187,11 @@ class GraphBlock(nn.Module):
         # Process input through the convolutional layers
         out = x.unsqueeze(1).transpose(2, 3)  # Shape becomes (B, 1, d_model, T)
         out = self.start_conv(out)
-        print("out", out.shape)
+        # print("out", out.shape)
         out = self.gelu(self.gconv1(out, adp))
         out = self.end_conv(out).squeeze()
         out = self.linear(out)
-        print("out", out.shape)
+        # print("out", out.shape)
         # Apply residual connection and layer normalization
         return self.norm(x + out)
 
