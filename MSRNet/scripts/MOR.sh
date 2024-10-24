@@ -19,7 +19,7 @@ python -u run_longExp.py \
     --data_path MOR.csv \
     --model_id MOR'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data MOR \
+    --data custom \
     --features M \
     --target 'OT' \
     --seq_len $seq_len \
@@ -48,7 +48,7 @@ python -u run_longExp.py \
     --data_path MOR.csv \
     --model_id MOR'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data MOR \
+    --data custom \
     --features M \
     --target 'OT' \
     --seq_len $seq_len \
@@ -78,7 +78,7 @@ python -u run_longExp.py \
     --data_path MOR.csv \
     --model_id MOR'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data MOR \
+    --data custom \
     --features M \
     --target 'OT' \
     --seq_len $seq_len \
@@ -108,7 +108,7 @@ python -u run_longExp.py \
     --data_path MOR.csv \
     --model_id MOR'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data MOR \
+    --data custom \
     --features M \
     --target 'OT' \
     --seq_len $seq_len \
