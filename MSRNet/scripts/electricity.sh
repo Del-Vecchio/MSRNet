@@ -6,7 +6,7 @@ if [ ! -d "./logs/electricity" ]; then
     mkdir ./logs/electricity
 fi
 
-export CUDA_VISIBLE_DEVICES=3
+export CUDA_VISIBLE_DEVICES=0
 
 seq_len=96
 label_len=48
