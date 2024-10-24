@@ -50,7 +50,7 @@ python -u run_longExp.py \
     --data_path ETTh1.csv \
     --model_id ETTh1'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data ETTh1 \
+    --data custom \
     --features M \
     --freq h \
     --target 'OT' \
@@ -81,7 +81,7 @@ python -u run_longExp.py \
     --data_path ETTh1.csv \
     --model_id ETTh1'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data ETTh1 \
+    --data custom \
     --features M \
     --freq h \
     --target 'OT' \
@@ -113,7 +113,7 @@ python -u run_longExp.py \
     --data_path ETTh1.csv \
     --model_id ETTh1'_'$seq_len'_'$pred_len \
     --model $model_name \
-    --data ETTh1 \
+    --data custom \
     --features M \
     --freq h \
     --target 'OT' \
