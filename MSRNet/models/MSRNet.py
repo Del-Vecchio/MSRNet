@@ -296,7 +296,8 @@ class Model(nn.Module):
         dec_out = dec_out_trends_sum + dec_out_seasonal  # [B, pred_len, target_num]
 
         # De-standardize the combined output
-        dec_out = dec_out * stdev + means[:, -self.pred_len:, -self.target_num:]
+        dec_out = dec_out * stdev[:, 0, -self.target_num:].unsqueeze(1) + means[:, 0, -self.target_num:].unsqueeze(1)
+
 
         # Return the last pred_len steps
         return dec_out  # [B, pred_len, target_num]
