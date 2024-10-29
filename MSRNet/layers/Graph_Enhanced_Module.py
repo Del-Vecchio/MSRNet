@@ -130,7 +130,7 @@ class graph_constructor(nn.Module):
         super(graph_constructor, self).__init__()
         self.nnodes = nnodes
 
-        # 使用两个不同的线性变换，分别对应 W1 和 W2
+        
         self.W1 = nn.Linear(dim, dim)
         self.W2 = nn.Linear(dim, dim)
 
@@ -140,14 +140,14 @@ class graph_constructor(nn.Module):
         self.static_feat = static_feat
 
     def forward(self, node_emb):
-        # 根据图中的公式，生成 M1 和 M2
+        
         M1 = torch.tanh(self.alpha * self.W1(node_emb))
         M2 = torch.tanh(self.alpha * self.W2(node_emb))
 
-        # 根据图中的公式生成邻接矩阵 A
+        
         adj = torch.tanh(torch.mm(M1, M2.transpose(1, 0)) - torch.mm(M2, M1.transpose(1, 0)))
 
-        # 如果有 k 的限制，执行稀疏化操作
+        
         if self.k < node_emb.shape[0]:
             n_nodes = node_emb.shape[0]
             mask = torch.zeros(n_nodes, n_nodes).to(node_emb.device)
