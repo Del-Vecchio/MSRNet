@@ -163,8 +163,9 @@ class GraphBlock(nn.Module):
                  gcn_depth, dropout, propalpha, seq_len, node_dim, k=6, alpha=1):
         super(GraphBlock, self).__init__()
 
+        # Create a higher-dimensional feature space to improve the representation ability of the graph structure
         # Multiply c_out by 3
-        c_out *= 1
+        c_out *= 3
         self.c_out = c_out  # Keep track of c_out for later use
 
         # Initialize node embeddings
