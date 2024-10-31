@@ -165,7 +165,7 @@ class GraphBlock(nn.Module):
 
         # Create a higher-dimensional feature space to improve the representation ability of the graph structure
         # Multiply c_out by 3
-        c_out *= 3
+        c_out *= 1
         self.c_out = c_out  # Keep track of c_out for later use
 
         # Initialize node embeddings
