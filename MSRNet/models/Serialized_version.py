@@ -1,13 +1,12 @@
 from typing import Optional
 
 import numpy as np
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.fft
 from layers.Embed import DataEmbedding
-from layers.MSGBlock import GraphBlock, Attention_Block, Predict
-from layers.PDF_backbone import PDF_backbone
+from layers.Graph_Enhanced_Module import GraphBlock, Attention_Block, Predict
+from layers.Multi_Scale_Module import Multi_Scale_Module
 from torch import Tensor
 import copy
 
@@ -164,7 +163,7 @@ class SeasonalBlock(nn.Module):
         subtract_last = configs.subtract_last
 
         # model
-        self.model = PDF_backbone(c_in=c_in, context_window=context_window, target_window=target_window,
+        self.model = Multi_Scale_Module(c_in=c_in, context_window=context_window, target_window=target_window,
                                            wo_conv=wo_conv, serial_conv=serial_conv, add=add,
                                            patch_len=patch_len, kernel_list=kernel_list, period=period, scale_weight=scale_weight,stride=stride,
                                            max_seq_len=max_seq_len, n_layers=n_layers, d_model=d_model,
