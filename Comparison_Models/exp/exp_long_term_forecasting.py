@@ -348,9 +348,9 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         # 假设 target_num 是你的参数
         target_num = 1
 
-        # 提取最后 target_num 个时间步的最后一个特征
-        preds_last_features = preds[:, -target_num:, -1]  # 预测值
-        trues_last_features = trues[:, -target_num:, -1]  # 真实值
+        # 提取最后时间步的最后一个特征
+        preds_last_features = preds[:, -1, -target_num:]  # 预测值
+        trues_last_features = trues[:, -1, -target_num:]  # 真实值
 
         # 构建 DataFrame，将最后 target_num 的预测值和真实值保存
         results_dict = {}
