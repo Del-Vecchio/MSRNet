@@ -392,38 +392,6 @@ class Exp_Main(Exp_Basic):
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-        folder_path_excel = './results_excel/' + setting + '/'
-        if not os.path.exists(folder_path_excel):
-            os.makedirs(folder_path_excel)
-
-        # 假设 target_num 是你的参数
-        target_num = 1
-
-        # 提取最后 target_num 个时间步的最后一个特征
-        preds_last_features = preds[:, -target_num:, -1]  # 预测值
-        trues_last_features = trues[:, -target_num:, -1]  # 真实值
-
-        # 构建 DataFrame，将最后 target_num 的预测值和真实值保存
-        results_dict = {}
-
-        # 循环 target_num 次，创建预测和真实值列
-        for i in range(target_num):
-            results_dict[f'Real_{i + 1}'] = trues_last_features[:, i]
-            results_dict[f'Predictions_{i + 1}'] = preds_last_features[:, i]
-
-        # 创建 DataFrame
-        results_df1 = pandas.DataFrame(results_dict)
-
-        # 保存 DataFrame 到 Excel 文件中
-        excel_file_path1 = os.path.join(folder_path_excel, 'results_target_num.xlsx')
-        results_df1.to_excel(excel_file_path1, index=False)
-
-        #         # 提取后三个特征
-        #         preds_last3 = preds[:, :, -3:]
-        #         trues_last3 = trues[:, :, -3:]
-
-        #         # 调用 metric 函数计算误差
-        #         mae, mse, rmse, mape, mspe, rse, corr = metric(preds_last3, trues_last3)
 
         mae, mse, rmse, mape, mspe, rse, corr = metric(preds, trues)
         print('mse:{}, mae:{}, rse:{}'.format(mse, mae, rse))
