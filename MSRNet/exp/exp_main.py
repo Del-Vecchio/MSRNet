@@ -308,61 +308,6 @@ class Exp_Main(Exp_Basic):
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-        folder_path_excel = './results_excel/' + setting + '/'
-        if not os.path.exists(folder_path_excel):
-            os.makedirs(folder_path_excel)
-
-        # # 提取每个序列的最后一个时间步的最后一个特征
-        # preds_last_feature = preds[:, -1, -1]  # 预测值
-        # trues_last_feature = trues[:, -1, -1]  # 真实值
-        # # 将预测值和真实值合并到一个pandas DataFrame
-        # results_df1 = pandas.DataFrame({
-        #     'Real': trues_last_feature,
-        #     'Predictions': preds_last_feature
-        # })
-        #
-        # # 将DataFrame保存到Excel文件中
-        # excel_file_path1 = os.path.join(folder_path_excel, 'results1.xlsx')
-        # results_df1.to_excel(excel_file_path1, index=False)
-
-        # 假设 target_num 是你的参数
-        target_num = self.args.target_num
-
-        # 提取最后 target_num 个时间步的最后一个特征
-        preds_last_features = preds[:, -target_num:, -1]  # 预测值
-        trues_last_features = trues[:, -target_num:, -1]  # 真实值
-
-        # 构建 DataFrame，将最后 target_num 的预测值和真实值保存
-        results_dict = {}
-
-        # 循环 target_num 次，创建预测和真实值列
-        for i in range(target_num):
-            results_dict[f'Real_{i + 1}'] = trues_last_features[:, i]
-            results_dict[f'Predictions_{i + 1}'] = preds_last_features[:, i]
-
-        # 创建 DataFrame
-        results_df1 = pandas.DataFrame(results_dict)
-
-        # 保存 DataFrame 到 Excel 文件中
-        excel_file_path1 = os.path.join(folder_path_excel, 'results_target_num.xlsx')
-        results_df1.to_excel(excel_file_path1, index=False)
-
-
-        excel_file_path2 = os.path.join(folder_path_excel, 'results_ori.xlsx')
-
-        # Flatten the arrays to 2D (num_samples, num_features * num_time_steps)
-        preds_flat = preds.reshape(preds.shape[0], -1)
-        trues_flat = trues.reshape(trues.shape[0], -1)
-
-        # Create a DataFrame
-        results_df2 = pandas.DataFrame(preds_flat)
-        results_df2.columns = [f'Pred_{i}' for i in range(preds_flat.shape[1])]
-        trues_df = pandas.DataFrame(trues_flat)
-        trues_df.columns = [f'True_{i}' for i in range(trues_flat.shape[1])]
-
-        # Combine and save
-        combined_df = pandas.concat([trues_df, results_df2], axis=1)
-        combined_df.to_excel(excel_file_path2, index=False)
 
         mae, mse, rmse, mape, mspe, rse, corr, nd, nrmse = metric(preds, trues)
         print('nd:{}, nrmse:{}, mse:{}, mae:{}, rse:{}, mape:{}'.format(nd, nrmse,mse, mae, rse, mape))
